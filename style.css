@@ -58,7 +58,7 @@ section#countdown-container {
 
   /* Makes sure the animation starts at the top of the circle */
   transform-origin: center;
-  transform: rotate(90deg);
+  transform: rotate(0.75turn);
 
   /* One second aligns with the speed of the countdown timer */
   transition: 1s linear all, stroke-width 1ms, transform-origin 1ms;
@@ -73,19 +73,18 @@ section#countdown-container {
 }
 
 .base-timer__label {
-  position: absolute;
+  /* label position */
+  /* horizontal rotation */
+  transform: scaleX(-1) ;
+  /* fix center to circle center */
+  transform-origin: center;
+  /* set middle of text as circle center */
+  text-anchor: middle;
 
-  /* Size should match the parent container */
-  width: 300px;
-  height: 300px;
+	font-family: ui-monospace;
+  font-size: large;
 
-  /* Create a flexible box that centers content vertically and horizontally */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  /* Sort of an arbitrary number */
-  font-size: 48px;
+  fill: black;
 }
 
 .base-timer__path-remaining.green {
@@ -107,11 +106,17 @@ header {
 	justify-content: center;
 }
 
+form#time-setters {
+  display: flex;
+  grid-template-columns: [right] 1fr [left] 1fr;
+  grid-template-rows: 1fr;
+}
 
 section#time-buttons-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  clear: both;
 }
 
 button.start-button {
